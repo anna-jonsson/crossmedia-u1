@@ -14,3 +14,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
+
+img {
+    height: 100px;
+}
