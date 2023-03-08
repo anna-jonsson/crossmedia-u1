@@ -76,21 +76,18 @@ const pictures = [
 
 for (let i = 0; i < pictures.length; i++) {
   document.querySelector("#wrapper").innerHTML += `
-    <img id ="picture${i + 1}" src='${pictures[i]["img-org"]}'>
-    <audio id = "tune${i + 1}" style = "display:none"> 
+    <img class = "pictures" id ="picture${i + 1}" src='${pictures[i]["img-org"]}'>
+    <audio class ="tunes" id = "tune${i + 1}" style = "display:none"> 
     <source src='${pictures[i].sound}' type="audio/mp3">
     </source>
     </audio>
     </img>`;
-  let image = document.querySelectorAll(`#picture${i + 1}`);
+  let image = document.querySelectorAll(`.pictures`);
   image.forEach((pic) => {
     pic.addEventListener("click", (e) => {
       e.preventDefault();
-
-      let play_tune = document.querySelectorAll(`#tune${i + 1}`);
-      play_tune.forEach((sound) => {
-        sound.play();
-      });
+      let sound = pic.nextElementSibling;
+      sound.play();
     });
   });
 }
