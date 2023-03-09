@@ -65,7 +65,7 @@ const pictures = [
     },
     //WHISTLER'S MOTHER
     {
-        "img-org": "./img_orginal/Arragement_in_grey_and_black.jpeg", //url to org-img
+        "img-org": "./img_orginal/Arragement_in_grey_and_black.jpg", //url to org-img
         "img-remix": "./img_remix/whistlers-mother_v2.jpeg",
         "img-dissolve": "", //url to diss img
         sound: "sounds/whistlers_mother_keyboard.mp3", //url to sound
@@ -126,8 +126,10 @@ const pictures = [
 
 btn = document.querySelector('button');
 btn.addEventListener('click', function () {
-    showAll();
+    document.querySelector('#hidden').id = "";
     btn.style.display = 'none';
+    document.querySelector('#interaction').id = "hidden";
+    showAll();
 });
 
 function showAll() {
@@ -142,8 +144,7 @@ function showAll() {
         });
     }
 
-    let parent = document.querySelectorAll("#wrapper canvas");
-    // console.log(parent);
+    let parent = document.querySelectorAll(".wrapper canvas");
     parent.forEach(child => {
         let sound = child.previousElementSibling;
         child.addEventListener("mouseenter", function (event) {
