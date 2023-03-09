@@ -16,5 +16,9 @@ body {
 }
 
 img {
-    height: 100px;
+    height: 150px;
+}
+
+#hover {
+    height: 150px;
 }
