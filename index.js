@@ -103,15 +103,7 @@ const pictures = [
 //     // });
 // }
 
-for (let i = 0; i < pictures.length; i++) {
-    new hoverEffect({
-        parent: document.querySelector(`#hover${i}`), //parent element for distortion pic
-        intensity: 0.2, //intensity of picture/distortion animation
-        image1: pictures[i]["img-org"],
-        image2: pictures[i]["img-remix"],
-        displacementImage: "./img_displace/stripe1.png"
-    });
-}
+
 
 
 
@@ -132,20 +124,41 @@ for (let i = 0; i < pictures.length; i++) {
 //     displacementImage: "./img_displace/stripe1.png"
 // });
 
-let parent = document.querySelectorAll("#wrapper canvas");
-// console.log(parent);
-parent.forEach(child => {
-    let sound = child.previousElementSibling;
-    child.addEventListener("mouseenter", function (event) {
-        event.preventDefault();
-        sound.currentTime = 0;
-        sound.play();
-    });
-    child.addEventListener("mouseleave", function (event) {
-        event.preventDefault();
-        sound.pause();
-    });
+btn = document.querySelector('button');
+btn.addEventListener('click', function () {
+    showAll();
+    btn.style.display = 'none';
 });
+
+function showAll() {
+
+    for (let i = 0; i < pictures.length; i++) {
+        new hoverEffect({
+            parent: document.querySelector(`#hover${i}`), //parent element for distortion pic
+            intensity: 0.2, //intensity of picture/distortion animation
+            image1: pictures[i]["img-org"],
+            image2: pictures[i]["img-remix"],
+            displacementImage: "./img_displace/stripe1.png"
+        });
+    }
+
+    let parent = document.querySelectorAll("#wrapper canvas");
+    // console.log(parent);
+    parent.forEach(child => {
+        let sound = child.previousElementSibling;
+        child.addEventListener("mouseenter", function (event) {
+            event.preventDefault();
+            sound.currentTime = 0;
+            sound.play();
+        });
+        child.addEventListener("mouseleave", function (event) {
+            event.preventDefault();
+            sound.pause();
+        });
+    });
+
+}
+
 
 // let sound1 = document.querySelector("#hover1 audio");
 // document.querySelector("#hover1 canvas").addEventListener("mouseenter", function (event) {
