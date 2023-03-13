@@ -52,6 +52,18 @@ const pictures = [
   },
 ];
 
+const diss = [
+  {
+    "img-diss": "./img_displace/heightMap.png",
+  },
+  {
+    "img-diss": "./img_displace/strip.png",
+  },
+  {
+    "img-diss": "./img_displace/stripe1.png",
+  },
+];
+
 btn = document.querySelector("button");
 btn.addEventListener("click", function () {
   document.querySelector("#hidden").id = "";
@@ -67,8 +79,18 @@ function showAll() {
       intensity: 0.2, //intensity of picture/distortion animation
       image1: pictures[i]["img-org"],
       image2: pictures[i]["img-remix"],
-      displacementImage: "./img_displace/stripe1.png",
+      displacementImage: getRandomItem(diss),
     });
+  }
+
+  function getRandomItem(diss) {
+    // get random index value
+    const randomIndex = Math.floor(Math.random() * diss.length);
+
+    // get random item
+    const item = diss[randomIndex]["img-diss"];
+
+    return item;
   }
 
   let parent = document.querySelectorAll(".wrapper canvas");
