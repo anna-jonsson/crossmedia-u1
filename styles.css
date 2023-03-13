@@ -23,7 +23,8 @@ body {
 }
 
 h1 {
-  writing-mode: vertical-lr;
+  writing-mode:vertical-rl;
+  transform: rotate(180deg);
   font-family: "Permanent Marker", cursive;
   font-family: "Space Grotesk", sans-serif;
   font-size: 90px;
