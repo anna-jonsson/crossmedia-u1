@@ -190,32 +190,40 @@ h1 {
   outline: none;
 }
 
-.cursor{
-    border-radius: 50%;
-    background: rgba(0,0,0, 0.2);
-    width: 50px;
-    height: 50px;
-    pointer-events: none;
-    position: absolute;
-    z-index: 999;
-    transition: all .3s ease-out;
-    transition-property: border-radius;
-    animation: animCursor .6s infinite alternate;
+.cursor {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  transition-property: border-radius;
+  animation: animCursor 0.6s infinite alternate;
+}
+
+.cursor.focus {
+  border-radius: 10px;
+  transform: rotate(-45deg);
+  animation: animRotate 1.2s infinite;
+  background: rgba(255, 255, 255, 0.408);
+}
+
+@keyframes animCursor {
+  from {
+    transform: scale(1);
   }
-  
-  .cursor.focus{
-    border-radius: 10px;
+  to {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes animRotate {
+  from {
     transform: rotate(-45deg);
-    animation: animRotate 1.2s infinite;
-    background: rgba(255, 255, 255, 0.408);
   }
-  
-  @keyframes animCursor{
-    from{ transform: scale(1); }
-    to{ transform: scale(.7); }
+  to {
+    transform: rotate(315deg);
   }
-  
-  @keyframes animRotate{
-    from{ transform: rotate(-45deg); }
-    to{ transform: rotate(315deg); }
-  }
+}
