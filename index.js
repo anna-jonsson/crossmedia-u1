@@ -52,6 +52,7 @@ const pictures = [
     },
 ];
 
+// DISPLACEMENT IMAGES
 const diss = [
     {
         "img-diss": "./img_displace/heightMap.png",
@@ -63,6 +64,8 @@ const diss = [
         "img-diss": "./img_displace/stripe1.png",
     },
 ];
+
+//BUTTON
 
 btn = document.querySelector("button");
 btn.addEventListener("click", function () {
@@ -80,6 +83,9 @@ btn.addEventListener("mouseleave", () => {
     cursor.classList.remove("focus");
 });
 
+// DISPLAY IMAGES
+// hover effect
+
 function showAll() {
     for (let i = 0; i < pictures.length; i++) {
         new hoverEffect({
@@ -91,6 +97,8 @@ function showAll() {
         });
     }
 
+    // randomize displacement image
+
     function getRandomItem(diss) {
         // get random index value
         const randomIndex = Math.floor(Math.random() * diss.length);
@@ -101,6 +109,8 @@ function showAll() {
         return item;
     }
 
+    // enable sound for each element on mouseenter
+    // disable sound for each element on mouseleave
     let parent = document.querySelectorAll(".wrapper canvas");
     parent.forEach((child) => {
         let sound = child.previousElementSibling;
@@ -116,11 +126,9 @@ function showAll() {
     });
 }
 
-// Mingalarpar (:
+//CURSOR 
+
 const cursor = document.querySelector('.cursor');
-// const blue = document.querySelector('.blue');
-// const yellow = document.querySelector('.yellow');
-// const links = Array.from(document.querySelectorAll("a"));
 
 const setCursorLocation = e => {
     let cursorLocation = `top: ${e.pageY - 20}px; left: ${e.pageX - 20}px;`;
@@ -128,9 +136,6 @@ const setCursorLocation = e => {
 };
 
 document.addEventListener("mousemove", setCursorLocation);
-
-// blue.addEventListener("mouseenter", () => cursor.classList.add("cursor-blue") );
-// yellow.addEventListener("mouseenter", () => cursor.classList.add("cursor-yellow") );
 
 let all = document.querySelectorAll('.wrapper div');
 
