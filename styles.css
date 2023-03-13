@@ -4,10 +4,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: none;
 }
 
 #hidden {
   display: none;
+  transition: 2s;
 }
 
 .wrapper {
@@ -17,6 +19,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 30px;
 }
 
 h1 {
@@ -24,7 +27,15 @@ h1 {
   font-family: "Permanent Marker", cursive;
   font-family: "Space Grotesk", sans-serif;
   font-size: 90px;
+  margin-right: 0px;
 }
+
+/* p {
+    writing-mode: sideways-lr;
+    margin-left: 0px;
+    font-family: "Space Grotesk", sans-serif;
+    opacity: 20%;
+} */
 
 .animate-charcter {
   text-transform: uppercase;
@@ -34,7 +45,7 @@ h1 {
   background-size: 200% auto;
   color: #fff;
   background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 3s linear infinite;
@@ -49,9 +60,11 @@ h1 {
 
 #interaction {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.799);
 }
 
 .wrapper div {
@@ -95,6 +108,7 @@ h1 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  cursor: none;
 }
 
 .button-82-shadow {
@@ -174,3 +188,33 @@ h1 {
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
 }
+
+.cursor{
+    border-radius: 50%;
+    background: rgba(0,0,0, 0.2);
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 999;
+    transition: all .3s ease-out;
+    transition-property: border-radius;
+    animation: animCursor .6s infinite alternate;
+  }
+  
+  .cursor.focus{
+    border-radius: 10px;
+    transform: rotate(-45deg);
+    animation: animRotate 1.2s infinite;
+    background: rgba(255, 255, 255, 0.408);
+  }
+  
+  @keyframes animCursor{
+    from{ transform: scale(1); }
+    to{ transform: scale(.7); }
+  }
+  
+  @keyframes animRotate{
+    from{ transform: rotate(-45deg); }
+    to{ transform: rotate(315deg); }
+  }
